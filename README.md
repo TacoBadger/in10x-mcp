@@ -12,7 +12,8 @@ Turn your coding sessions into social proof. This MCP generates engaging posts a
 
 ## Install
 
-1. Clone this repo:
+### 1. Clone and build
+
 ```bash
 git clone https://github.com/TacoBadger/in10x-mcp.git
 cd in10x-mcp
@@ -20,16 +21,31 @@ npm install
 npm run build
 ```
 
-2. Add to your Claude Desktop config (`~/Library/Application Support/Claude/claude_desktop_config.json`):
+### 2. Add to your editor
+
+<details>
+<summary><strong>Claude Desktop</strong></summary>
+
+Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
 
 ```json
 {
   "mcpServers": {
     "in10x": {
+      "command": "node",
+      "args": ["/path/to/in10x-mcp/build/index.js"]
+    }
+  }
+}
+```
+
+On macOS with Homebrew Node:
+```json
+{
+  "mcpServers": {
+    "in10x": {
       "command": "/opt/homebrew/opt/node@20/bin/node",
-      "args": [
-        "/path/to/in10x-mcp/build/index.js"
-      ],
+      "args": ["/path/to/in10x-mcp/build/index.js"],
       "env": {
         "PATH": "/opt/homebrew/opt/node@20/bin:/opt/homebrew/bin:/usr/bin:/bin"
       }
@@ -38,12 +54,52 @@ npm run build
 }
 ```
 
-Restart Claude Desktop to load the MCP.
+</details>
+
+<details>
+<summary><strong>Cursor</strong></summary>
+
+Edit `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "in10x": {
+      "command": "node",
+      "args": ["/path/to/in10x-mcp/build/index.js"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Windsurf</strong></summary>
+
+Edit `~/.windsurf/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "in10x": {
+      "command": "node",
+      "args": ["/path/to/in10x-mcp/build/index.js"]
+    }
+  }
+}
+```
+
+</details>
+
+### 3. Restart your editor
+
+Restart Claude Desktop / Cursor / Windsurf to load the MCP.
 
 ## Connect your account
 
 1. Go to [in10x.com/connect/mcp](https://in10x.com/connect/mcp) and generate a token
-2. In Claude, say: `connect_account token="in10x_xxxxx..."`
+2. In your editor, say: `connect_account token="in10x_xxxxx..."`
 3. You're connected! Token is saved for future sessions.
 
 ## Usage
@@ -73,7 +129,7 @@ Or just code - the MCP will offer to generate posts when you say things like "do
 
 1. You code and ship things
 2. MCP detects wins or you trigger manually
-3. Claude generates engaging posts from your session
+3. AI generates engaging posts from your session
 4. You approve and push to In10x
 5. Your profile shows what you've built
 
