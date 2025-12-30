@@ -16,7 +16,7 @@ WHAT TO PASS:
 
 REQUIRES: Connected account (use connect_account first). If not connected, the tool will prompt user to connect.`;
 
-const PLATFORM_URL = process.env.IN10X_URL || "https://in10x.com";
+const PLATFORM_URL = process.env.IN10X_URL || "https://www.in10x.com";
 
 export const pushToIn10xSchema = {
   content: z

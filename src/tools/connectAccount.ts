@@ -13,7 +13,7 @@ FLOW:
 1. If no token provided, show the connection URL
 2. If token provided, save it and confirm connection`;
 
-const PLATFORM_URL = process.env.IN10X_URL || "https://in10x.com";
+const PLATFORM_URL = process.env.IN10X_URL || "https://www.in10x.com";
 
 export const connectAccountSchema = {
   token: z
